@@ -14,6 +14,7 @@ public class DatabaseService : IDatabaseService
     /// </summary>
     public async Task<IEnumerable<Hotel>> GetHotels()
     {
+        Console.WriteLine(Environment.GetEnvironmentVariable("SQLAZURECONNSTR_ContosoSuites")!);
         var sql = "SELECT HotelID, HotelName, City, Country FROM dbo.Hotel";
         using var conn = new SqlConnection(
             connectionString: Environment.GetEnvironmentVariable("SQLAZURECONNSTR_ContosoSuites")!
